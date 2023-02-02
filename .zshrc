@@ -164,20 +164,34 @@ bindkey '^ ' autosuggest-accept
 
 
 
+## FUNCTIONS
+docker_kill () { docker kill $(docker ps -q); }
+docker_stop () { docker stop $(docker ps -q); }
+docker_remove () { docker rm $(docker ps -a -q); }
+
+
+
 ## ALIAS
 alias cls="clear"
 alias dir="ls"
 alias md="mkdir"
 alias python="/usr/bin/python2.7"
-alias dk="docker kill $(docker ps -q)"
+alias dk=docker_kill
+alias dr=docker_remove
+alias ds="docker ps"
+alias dcp="docker container prune"
 alias wt="curl -3 wttr.in"
 alias nac="npm audit | grep -E \"(Critical)\" -B3 -A10"
 alias nah="npm audit | grep -E \"(High | Critical)\" -B3 -A10"
+alias bm="bosco morning"
 alias br="bosco run --no-cache -d"
 alias bd="bosco run --no-cache -d"
-alias bc="bosco cdn -w \"app-job-application-dashboard|app-application-tracker|app-job-application|app-organisation|app-school-portal|app-school-applications|app-candidate-search|app-authentication|app-career-profile|app-cv|infra-mongodbv4|infra-mysql|infra-nginx-gateway|infra-rabbitmq|service-page-composer|service-amqp2pdf|service-job-application-customisation|service-layout-template|service-site-assets|service-upload-scan|app-application-tracker|service-jobs-api|infra-talent-match-postgres|infra-redis|infra-s3|service-marketing|service-jobs-savedjob-api|app-recruitment-worksheets|service-registration\" -r \"app-job-application-dashboard|app-application-tracker|app-job-application|app-organisation|app-school-portal|app-school-applications|app-candidate-search|app-authentication|app-career-profile|app-cv|infra-mongodbv4|infra-mysql|infra-nginx-gateway|infra-rabbitmq|service-page-composer|service-amqp2pdf|service-job-application-customisation|service-layout-template|service-site-assets|service-upload-scan|app-application-tracker|service-jobs-api|infra-talent-match-postgres|infra-redis|infra-s3|service-marketing|service-jobs-savedjob-api|app-recruitment-worksheets|service-registration\""
-alias bp="bosco ps"
+alias bc="bosco cdn -w \"app-job-application-dashboard|app-application-tracker|app-job-application|app-organisation|app-school-portal|app-school-applications|app-candidate-search|app-authentication|app-career-profile|app-cv|infra-mongodbv4|infra-mysql>alias bp="bosco ps"
 alias bs="bosco bs"
+alias td="TSL_ENV=development npm run dev"
+alias nd="npm run dev"
+alias ns="npm run stub-data"
+alias ndd="npm run dev-dev-solr"
 
 
 
